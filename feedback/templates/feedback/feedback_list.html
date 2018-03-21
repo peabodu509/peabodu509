@@ -1,0 +1,15 @@
+﻿{% extends 'feedback/base.html' %}
+
+{% block content %}
+	{% for feedback in feedbacks %}
+	    <div class="post">
+	        <h1><a href="{% url 'feedback_detail' pk=feedback.pk %}">{{ feedback.number}}번째 피드백</a></h1>
+	        <div class="date">
+	            <p>published: {{ feedback.created_date }}</p>
+	        </div>
+	        <p>{{ feedback.good|linebreaksbr }}</p>
+	        <p>{{ feedback.bad|linebreaksbr }}</p>
+	        <p>{{ feedback.proposal |linebreaksbr }}</p>
+	    </div>
+	{% endfor %}
+{% endblock %}

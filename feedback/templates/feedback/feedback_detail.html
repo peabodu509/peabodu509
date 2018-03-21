@@ -1,0 +1,15 @@
+﻿{% extends 'feedback/base.html' %}
+
+{% block content %}
+    <div class="post">
+        <h1>{{ feedback.number }}번째 피드백</h1>
+        {% if feedback.created_date %}
+            <div class="date">
+                {{ feedback.created_date }}
+            </div>
+        {% endif %}
+        <p>{{ feedback.good|linebreaksbr }}</p>
+        <p>{{ feedback.bad|linebreaksbr }}</p>
+        <p>{{ feedback.proposal|linebreaksbr }}</p>
+    </div>
+{% endblock %}
